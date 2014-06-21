@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test deck</title>
+  <title>My Shinyapp</title>
   <meta charset="utf-8">
-  <meta name="description" content="Test deck">
-  <meta name="author" content="">
+  <meta name="description" content="My Shinyapp">
+  <meta name="author" content="htt">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -32,9 +32,9 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1>Test deck</h1>
-    <h2></h2>
-    <p><br/></p>
+    <h1>My Shinyapp</h1>
+    <h2>the app for Monthly Airline Passenger Numbers 1949-1960</h2>
+    <p>htt<br/></p>
   </hgroup>
   <article></article>  
 </slide>
@@ -43,13 +43,15 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>Introduction</h2>
   </hgroup>
   <article data-timings="">
     <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
+<li>My shiny app study on the data of Monthly Airline Passenger Numbers 1949-1960</li>
+<li>The data set is The classic Box &amp; Jenkins airline data. Monthly totals of international airline passengers, 1949 to 1960.</li>
+<li>This data set is a monthly time series data include 144 observation.</li>
+<li>The shiny app can plot the selected data.</li>
+<li>The shiny app can do the prediction using time series model.</li>
 </ol>
 
   </article>
@@ -58,13 +60,57 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>The time series data</h2>
   </hgroup>
   <article data-timings="">
-    <pre><code class="r">plot(1:10, 1:10)
-</code></pre>
+    <p>The graph plot the data. we can see there is a time series pattern for this data.
+<img src="figure/unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
 
-<p><img src="assets/fig/unnamed-chunk-1.png" alt="plot of chunk unnamed-chunk-1"> </p>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>The predicton</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>I use Holt-Winters Filtering model to do the prediction</li>
+<li>Holt-Winters exponential smoothing with trend and additive seasonal component.</li>
+</ul>
+
+<p>Smoothing parameters:
+ alpha: 0.2479595
+ beta : 0.03453373
+ gamma: 1</p>
+
+<p>The additive Holt-Winters prediction function (for time series with period length p) is</p>
+
+<p>Yhat[t+h] = a[t] + h * b[t] + s[t - p + 1 + (h - 1) mod p],</p>
+
+<p>where a[t], b[t] and s[t] are given by</p>
+
+<p>a[t] = α (Y[t] - s[t-p]) + (1-α) (a[t-1] + b[t-1])</p>
+
+<p>b[t] = β (a[t] - a[t-1]) + (1-β) b[t-1]</p>
+
+<p>s[t] = γ (Y[t] - a[t]) + (1-γ) s[t-p]</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>The plot of the prediction</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>I predict 100 month ahead data and plot the result.</li>
+<li>In the plot, we can see the predicted data follow the similar pattern of real data.
+<img src="figure/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -76,14 +122,26 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='Introduction'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='The time series data'>
          2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='The predicton'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='The plot of the prediction'>
+         4
       </a>
     </li>
   </ul>
